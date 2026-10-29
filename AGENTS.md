@@ -14,7 +14,7 @@ USDC treasury for small Web3 teams on Arc. Fully funded dated commitments are re
 - CovenantFactory: deployed on Arc Testnet at 0x10550cd1cea9854f9ac18018507479339875f8af (tx 0x3f221de18309eb51c749e8119f4f2efb55835c1a936a8049e9f46d8151980cf9), constructed with Arc Testnet USDC. Configured via `VITE_COVENANT_FACTORY_ADDRESS` in `.env`. Details in `docs/DEPLOYMENTS.md`.
 - Integration tests ran on a fork of Arc Testnet, not live. No live vault has been exercised by the agent (no signing wallet is available without Circle credentials).
 - Vaults are created by users via the factory. None exists from Arc Studio.
-- Mainnet: not configured and not to be deployed by Arc Studio.
+- Mainnet: user requested migration. App targets chain 5042. /deploy prepares an explicit user-signed factory creation transaction; never sign or fund for the user. Mainnet factory remains unconfirmed until a successful receipt is verified. Configure only VITE_COVENANT_MAINNET_FACTORY_ADDRESS after confirmation; never reuse the testnet address. Chain-specific v2 browser storage prevents testnet treasury leakage.
 
 ## Key decisions
 

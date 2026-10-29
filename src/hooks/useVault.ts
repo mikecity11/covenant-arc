@@ -10,7 +10,7 @@ export interface VaultState {
   loading: boolean
   /** The address did not answer like a Covenant vault. */
   invalid: boolean
-  /** The vault is bound to a token other than Arc Testnet USDC. */
+  /** The vault is bound to a token other than the selected network USDC. */
   wrongToken: boolean
   owner?: Addr
   token?: Addr
@@ -71,7 +71,7 @@ interface RawCommitment {
 export function useCommitments(vault: Addr | undefined, count: bigint) {
   const client = usePublicClient({ chainId: CHAIN_ID })
   return useQuery({
-    queryKey: ['commitments', vault, count.toString()],
+    queryKey: ['commitments', CHAIN_ID, vault, count.toString()],
     enabled: Boolean(vault && client),
     refetchInterval: 10000,
     queryFn: async (): Promise<CommitmentView[]> => {

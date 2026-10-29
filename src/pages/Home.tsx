@@ -52,7 +52,7 @@ export default function Home() {
                 <span className="hero-feature"><ReceiptText className="size-3.5" /> Onchain receipts</span>
               </div>
               <p className="mt-5 max-w-md text-xs leading-relaxed text-ivory-mute">
-                Arc Testnet prototype · Test USDC only · Not independently audited
+                Arc mainnet setup · Real USDC · Not independently audited
               </p>
             </Reveal>
           </div>
@@ -160,7 +160,7 @@ export default function Home() {
             <div>
               <p className="mb-4 text-xs font-semibold uppercase tracking-[.16em] text-blue-100">A clearer kind of treasury</p>
               <h2 className="display max-w-2xl text-balance text-4xl leading-tight sm:text-5xl">Protect what is promised.<br />Make room for what is next.</h2>
-              <p className="mt-5 max-w-xl text-sm leading-relaxed text-blue-100">Explore Covenant with simulated funds, or create a treasury with test USDC on Arc Testnet.</p>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-blue-100">Explore with simulated funds first. Mainnet treasuries use real USDC after the factory deployment is confirmed.</p>
             </div>
             <Link to="/app" className="inline-flex min-h-13 w-fit items-center gap-3 rounded-xl bg-white px-7 py-4 text-sm font-semibold text-[#1844d9] shadow-xl transition-transform hover:-translate-y-1">
               Open your treasury <ArrowRight className="size-4" />

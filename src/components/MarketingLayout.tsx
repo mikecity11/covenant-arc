@@ -84,7 +84,7 @@ export function MarketingLayout() {
           <div className="text-sm">
             <p className="eyebrow mb-3">Status</p>
             <p className="leading-relaxed text-ivory-dim">
-              Unaudited prototype configured for Arc Testnet with test USDC. Not deployed to mainnet. Covenant charges no protocol fee; network fees apply.
+              Unaudited prototype configured for Arc mainnet. Mainnet transactions use real USDC. Check deployment status in the app. No protocol fee; network fees apply.
             </p>
           </div>
         </div>

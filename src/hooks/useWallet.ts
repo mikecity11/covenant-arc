@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useAccount, useSwitchChain } from 'wagmi'
 import { CHAIN_ID } from '@/lib/deployment'
 
-/** Wallet + network state for the single supported chain (Arc Testnet). */
+/** Wallet + network state for the single supported chain (Arc mainnet). */
 export function useWallet() {
   const { address, isConnected, isConnecting, chainId } = useAccount()
   const { switchChain, isPending: switching } = useSwitchChain()

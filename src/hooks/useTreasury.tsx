@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react'
 import { getAddress, isAddress } from 'viem'
+import { CHAIN_ID } from '@/lib/deployment'
 
 type Addr = `0x${string}`
 
@@ -13,8 +14,8 @@ interface TreasuryContextValue {
   setDialogOpen: (open: boolean) => void
 }
 
-const KEY_SELECTED = 'covenant:vault'
-const KEY_SAVED = 'covenant:saved'
+const KEY_SELECTED = `covenant:v2:${CHAIN_ID}:vault`
+const KEY_SAVED = `covenant:v2:${CHAIN_ID}:saved`
 
 const readSaved = (): Addr[] => {
   try {
@@ -79,7 +80,7 @@ export function useTreasury(): TreasuryContextValue {
 }
 
 /** Block at which a vault was created through this app, used as the activity scan floor. */
-export const creationBlockKey = (vault: string) => `covenant:block:${vault.toLowerCase()}`
+export const creationBlockKey = (vault: string) => `covenant:v2:${CHAIN_ID}:block:${vault.toLowerCase()}`
 export const saveCreationBlock = (vault: string, block: bigint) =>
   localStorage.setItem(creationBlockKey(vault), block.toString())
 export const readCreationBlock = (vault: string): bigint | undefined => {

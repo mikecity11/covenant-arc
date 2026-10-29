@@ -88,7 +88,7 @@ export function AppShell() {
       <div className="min-w-0">
         <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-3 border-b border-line bg-ink/80 px-4 backdrop-blur-xl sm:px-8">
           <button aria-label="Open menu" onClick={() => setDrawer(true)} className="grid size-11 place-items-center rounded-full text-ivory-dim hover:bg-ink-3 lg:hidden"><Menu className="size-5" /></button>
-          <div className="hidden text-sm text-ivory-mute lg:block">{CHAIN.name} · Test USDC only</div>
+          <div className="hidden text-sm text-ivory-mute lg:block">{CHAIN.name} · Real USDC</div>
           <ConnectKitButton.Custom>
             {({ show, isConnected: c, truncatedAddress }) => (
               <Button variant={c ? 'secondary' : 'primary'} onClick={show} className="ml-auto min-h-10">
@@ -106,7 +106,7 @@ export function AppShell() {
         )}
         {!FACTORY_ADDRESS && (
           <div className="border-b border-gold/30 bg-gold/10 px-4 py-3 text-sm text-ivory-dim sm:px-8">
-            <b className="text-gold-soft">Setup state:</b> the Covenant factory is not deployed yet, so creating treasuries is disabled. Existing vaults can be opened by address.
+            <b className="text-gold-soft">Mainnet setup pending:</b> a verified factory address has not been configured. Treasury creation stays disabled. <Link to="/deploy" className="font-semibold underline">Open deployment setup</Link>.
           </div>
         )}
 

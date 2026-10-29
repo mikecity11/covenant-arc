@@ -48,7 +48,7 @@ export function VaultGuard({ av, children }: { av: Active; children: ReactNode }
   if (av.state.wrongToken) {
     return (
       <Notice tone="alert" title="Unsupported token">
-        This vault is bound to a token other than Arc Testnet USDC. Covenant will not display or write to it.
+        This vault is bound to a token other than Arc mainnet USDC. Covenant will not display or write to it.
       </Notice>
     )
   }

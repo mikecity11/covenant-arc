@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react'
 const ITEMS: Array<{ q: string; a: string }> = [
   {
     q: 'Is my team\'s money safe?',
-    a: 'Covenant is an unaudited prototype configured for Arc Testnet and test USDC. Inside a vault, the contract enforces one rule: the owner can never spend the part of the balance that recorded promises need. That does not remove smart contract risk, and no independent audit has been done. Do not use it with funds you cannot afford to lose.',
+    a: 'Covenant is an unaudited prototype configured for Arc mainnet and real USDC. Inside a vault, the contract enforces one rule: the owner can never spend the part of the balance that recorded promises need. That does not remove smart contract risk, and no independent audit has been done. Do not use it with funds you cannot afford to lose.',
   },
   {
     q: 'Can the owner cancel a promise?',

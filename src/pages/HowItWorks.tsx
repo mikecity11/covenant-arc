@@ -51,7 +51,7 @@ export default function HowItWorks() {
         </p>
         <div className="mt-8">
           <Notice tone="gold" title="Unaudited prototype">
-            Covenant has not been independently audited. It is configured for {CHAIN.name} and test USDC. Nothing here is deployed to mainnet.
+            Covenant has not been independently audited. It is configured for {CHAIN.name} and real USDC. Mainnet factory deployment must be confirmed before treasury creation is enabled.
           </Notice>
         </div>
       </header>
@@ -90,7 +90,7 @@ export default function HowItWorks() {
           </Section>
 
           <Section id="treasury" n={2} title="Creating a treasury">
-            <p>A small factory contract creates one vault per treasury. Your connected wallet becomes the permanent owner and the vault is bound to USDC. There are no fees, no admin keys and no upgrade path.</p>
+            <p>A small factory contract creates one vault per treasury. Your connected wallet becomes the permanent owner and the vault is bound to USDC. There is no protocol fee and no factory administrator or upgrade path. Network fees still apply.</p>
             <p>Creating a vault is one transaction. If no factory address is configured, the app shows a setup state and disables creation instead of pretending it worked. You can also open any existing vault by address.</p>
           </Section>
 

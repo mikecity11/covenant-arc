@@ -5,6 +5,7 @@ import { AppShell } from '@/components/AppShell'
 import Home from '@/pages/Home'
 import HowItWorks from '@/pages/HowItWorks'
 import Demo from '@/pages/Demo'
+import Deploy from '@/pages/Deploy'
 import Overview from '@/pages/app/Overview'
 import Commitments from '@/pages/app/Commitments'
 import CommitmentDetail from '@/pages/app/CommitmentDetail'
@@ -31,6 +32,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="how-it-works" element={<HowItWorks />} />
           <Route path="demo" element={<Demo />} />
+          <Route path="deploy" element={<Deploy />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route path="app" element={<AppShell />}>

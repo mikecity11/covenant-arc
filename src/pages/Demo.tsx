@@ -175,7 +175,7 @@ export default function Demo() {
           )}
         </section>
       </div>
-      <div className="mt-8"><Notice>Ready for the real thing? Open the <a className="text-gold-soft underline-offset-4 hover:underline" href="/app">treasury app</a>, which reads and writes the actual contract on Arc Testnet.</Notice></div>
+      <div className="mt-8"><Notice>Ready for the real thing? Open the <a className="text-gold-soft underline-offset-4 hover:underline" href="/app">treasury app</a>, which is configured for Arc mainnet. Live writes require a verified deployment and use real USDC.</Notice></div>
     </div>
   )
 }

@@ -2,7 +2,7 @@
 
 Protect what's promised. Spend what's free.
 
-Covenant is a USDC treasury for small Web3 teams on Arc. Dated contributor commitments are fully funded and reserved inside the vault, so the owner can only spend what is truly available (balance minus reserved promises). This is an unaudited prototype configured for Arc Testnet with test USDC. Covenant charges no protocol fee; network fees apply.
+Covenant is a USDC treasury for small Web3 teams on Arc. Dated contributor commitments are fully funded and reserved inside the vault, so the owner can only spend what is truly available (balance minus reserved promises). This is an unaudited prototype configured for Arc mainnet with real USDC. Covenant charges no protocol fee; network fees apply.
 
 Built with [Arc Studio](https://studio.arc.io)
 
@@ -19,8 +19,8 @@ Public repository: https://github.com/mikecity11/covenant-arc (the original buil
 ## Status
 
 - Contracts written and tested: 88 Foundry unit, fuzz and invariant tests (`docs/TEST_RESULTS.md`) and 31 post-deploy integration tests run on a fork of Arc Testnet (`docs/INTEGRATION_RESULTS.md`). Reviewed with static analysis and two independent review passes. Not independently audited.
-- The factory is deployed on Arc Testnet at `0x10550cd1cea9854f9ac18018507479339875f8af` (see `docs/DEPLOYMENTS.md`). The app reads it from `VITE_COVENANT_FACTORY_ADDRESS`; without it, treasury creation is disabled and vaults can still be opened by address.
-- Arc Testnet only. Nothing is deployed to mainnet and no mainnet configuration exists.
+- The factory is deployed on Arc Testnet at `0x10550cd1cea9854f9ac18018507479339875f8af` (see `docs/DEPLOYMENTS.md`). This address belongs only to testnet and must not be used in the mainnet app. The mainnet app reads its factory from `VITE_COVENANT_MAINNET_FACTORY_ADDRESS`; without it, treasury creation is disabled and vaults can still be opened by address.
+- Mainnet migration prepared: /deploy creates a user-signed factory deployment after network/token/fee checks. No mainnet factory has been confirmed yet. Complete the wallet step, then configure the dedicated mainnet factory address.
 
 ## Tech stack
 
@@ -42,10 +42,10 @@ bun run contracts:test
 
 ### Environment variables
 
-- `VITE_COVENANT_FACTORY_ADDRESS` (optional): address of a deployed `CovenantFactory` on Arc Testnet. `.env.example` holds the testnet factory listed in `docs/DEPLOYMENTS.md`. Without it, treasury creation stays disabled.
+- `VITE_COVENANT_MAINNET_FACTORY_ADDRESS` (optional): address of a confirmed `CovenantFactory` on Arc mainnet. `.env.example` intentionally leaves it empty until a real mainnet deployment is verified. Without it, treasury creation stays disabled.
 
 ## Contracts
 
 - `contracts/CovenantVault.sol`: one non-upgradeable vault per treasury with an immutable owner and USDC token.
-- `contracts/CovenantFactory.sol`: creates and registers vaults for the Arc Testnet USDC token.
+- `contracts/CovenantFactory.sol`: creates and registers vaults for its immutable USDC token.
 - `contracts/test/`: unit, fuzz and invariant tests, including reverting-token and reentrancy cases.

@@ -18,7 +18,7 @@ The original build specification is preserved unchanged in `docs/BUILD_SPEC.md`.
 
 ## Mainnet
 
-None. Nothing is deployed to mainnet and no mainnet configuration exists.
+Setup prepared, not deployed yet. The /deploy page uses the same tested contract sources compiled with solc 0.8.28, optimizer 200 and EVM cancun. It checks chain 5042 and the canonical 6-decimal USDC before asking the user wallet to create CovenantFactory. No constructor funds are transferred; gas is paid in real USDC. A user-signed successful receipt and onchain token verification are required before configuring VITE_COVENANT_MAINNET_FACTORY_ADDRESS. Do not claim mainnet deployment until the actual address and hash are recorded.
 
 ## Verification summary
 

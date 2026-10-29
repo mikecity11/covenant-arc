@@ -1,26 +1,21 @@
-/**
- * wagmi configuration
- * Built with Arc Studio — https://studio.arc.io
- */
-
+/** Wallet configuration. Built with Arc Studio. */
 import { http, createConfig } from 'wagmi'
-import { mainnet } from 'wagmi/chains'
-import { arcTestnet } from 'viem/chains'
+import { arc, arcTestnet, mainnet } from 'viem/chains'
 import { injected } from 'wagmi/connectors'
 import { registerChain } from './tracing'
 import { requireChain } from './onchain-facts'
 
-// Read the RPC URL from the generated facts module (viem's default for this chain may be stale).
-const ARC_TESTNET_RPC = requireChain(arcTestnet.id).rpcUrls[0]
-
-// Pre-register chain RPC URLs so trace events show correct chain names immediately
-registerChain(arcTestnet.id, ARC_TESTNET_RPC)
+const arcRpc = requireChain(arc.id).rpcUrls[0]
+const testnetRpc = requireChain(arcTestnet.id).rpcUrls[0]
+registerChain(arc.id, arcRpc)
+registerChain(arcTestnet.id, testnetRpc)
 
 export const config = createConfig({
-  chains: [arcTestnet, mainnet], // mainnet needed for ENS resolution
+  chains: [arc, arcTestnet, mainnet],
   connectors: [injected()],
   transports: {
-    [arcTestnet.id]: http(ARC_TESTNET_RPC),
-    [mainnet.id]: http(), // ENS resolution uses mainnet
+    [arc.id]: http(arcRpc),
+    [arcTestnet.id]: http(testnetRpc),
+    [mainnet.id]: http('https://cloudflare-eth.com'),
   },
 })

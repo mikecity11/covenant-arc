@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useReadContract, usePublicClient } from 'wagmi'
 import { getAddress, isAddress, parseEventLogs, type TransactionReceipt } from 'viem'
 import { Plus, Trash2 } from 'lucide-react'
@@ -65,7 +66,7 @@ export function TreasuryDialog({ open, onClose }: { open: boolean; onClose: () =
         client.readContract({ address: a, abi: vaultAbi, functionName: 'owner' }),
       ])
       if (getAddress(token) !== USDC_ADDRESS) {
-        setOpenError('This vault holds a different token than Arc Testnet USDC, so Covenant will not open it.')
+        setOpenError('This vault holds a different token than Arc mainnet USDC, so Covenant will not open it.')
         return
       }
       setInput('')
@@ -111,11 +112,11 @@ export function TreasuryDialog({ open, onClose }: { open: boolean; onClose: () =
           <h3 id="t-create" className="eyebrow">Create a treasury</h3>
           {!FACTORY_ADDRESS ? (
             <Notice tone="gold" title="Factory not deployed yet">
-              Creating a treasury needs the Covenant factory contract on {CHAIN.name}. It has been written and tested but not deployed, so creation is disabled instead of faked. You can still open an existing vault below.
+              Creating a treasury needs the Covenant factory contract on {CHAIN.name}. It has been written and tested but not deployed, so creation is disabled instead of faked. You can still open an existing vault below. <Link to="/deploy" onClick={onClose} className="font-semibold text-gold underline">Prepare mainnet deployment</Link>.
             </Notice>
           ) : factoryMismatch ? (
             <Notice tone="alert" title="Factory is bound to a different token">
-              The configured factory does not use Arc Testnet USDC, so creating vaults is disabled.
+              The configured factory does not use Arc mainnet USDC, so creating vaults is disabled.
             </Notice>
           ) : (
             <>
