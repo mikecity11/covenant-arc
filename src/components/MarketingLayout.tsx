@@ -18,7 +18,7 @@ export function MarketingLayout() {
         Skip to content
       </a>
       <header className="sticky top-0 z-40 border-b border-line bg-ink/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
           <Link to="/" aria-label="Covenant home">
             <Wordmark />
           </Link>
@@ -36,7 +36,7 @@ export function MarketingLayout() {
             ))}
             <Link
               to="/app"
-              className="inline-flex min-h-10 items-center gap-1.5 rounded-full border border-gold/50 px-4 text-sm font-medium text-gold-soft transition-colors hover:bg-gold hover:text-ink"
+              className="inline-flex min-h-10 items-center gap-1.5 rounded-xl bg-gold px-5 text-sm font-semibold text-white shadow-lg shadow-blue-600/15 transition-colors hover:bg-gold-soft"
             >
               Open app <ArrowUpRight className="size-4" />
             </Link>
@@ -65,7 +65,7 @@ export function MarketingLayout() {
         <PageTransition />
       </main>
 
-      <footer className="border-t border-line">
+      <footer className="border-t border-line bg-ink-2">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-12 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <Wordmark />

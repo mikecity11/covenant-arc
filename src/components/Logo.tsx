@@ -1,11 +1,10 @@
-/** Covenant mark: a vessel split into a sealed (gold) and an open (mint) side. */
-export function LogoMark({ size = 28 }: { size?: number }) {
+/** Covenant: an open C surrounding a protected core. */
+export function LogoMark({ size = 32 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden>
-      <rect x="2.5" y="5.5" width="27" height="21" rx="6" stroke="#f3ecdd" strokeOpacity="0.55" />
-      <path d="M2.5 11.5a6 6 0 0 1 6-6H17v21H8.5a6 6 0 0 1-6-6v-9Z" fill="#c9a55c" fillOpacity="0.9" />
-      <path d="M17 5.5h6.5a6 6 0 0 1 6 6v9a6 6 0 0 1-6 6H17v-21Z" fill="#6fe3b5" fillOpacity="0.85" />
-      <path d="M17 3v26" stroke="#f3ecdd" strokeWidth="1.2" />
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <rect width="40" height="40" rx="12" fill="#2457ff" />
+      <path d="M27 12.5a10 10 0 1 0 0 15" stroke="white" strokeWidth="3.5" strokeLinecap="round" />
+      <path d="m20 14 5.5 3.2v6.1L20 26.5l-5.5-3.2v-6.1L20 14Z" fill="#84f0db" />
     </svg>
   )
 }
@@ -14,7 +13,7 @@ export function Wordmark() {
   return (
     <span className="inline-flex items-center gap-2.5">
       <LogoMark />
-      <span className="display text-xl font-normal tracking-tight">Covenant</span>
+      <span className="text-xl font-semibold tracking-[-0.05em]">covenant<span className="text-gold">.</span></span>
     </span>
   )
 }

@@ -46,7 +46,7 @@ function SideContent({ onNavigate, onTreasury }: { onNavigate: () => void; onTre
             className={({ isActive }) =>
               clsx(
                 'flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm transition-colors',
-                isActive ? 'bg-gold/12 text-gold-soft ring-1 ring-gold/30' : 'text-ivory-dim hover:bg-ink-3 hover:text-ivory',
+                isActive ? 'bg-gold text-white shadow-lg shadow-blue-600/15' : 'text-ivory-dim hover:bg-ink-3 hover:text-ivory',
               )
             }
           >
@@ -77,7 +77,7 @@ export function AppShell() {
 
       {drawer && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-ink/80" onClick={() => setDrawer(false)} aria-hidden />
+          <div className="absolute inset-0 bg-[#0b1739]/40" onClick={() => setDrawer(false)} aria-hidden />
           <div className="absolute inset-y-0 left-0 w-72 border-r border-line bg-ink-2">
             <button aria-label="Close menu" onClick={() => setDrawer(false)} className="absolute right-2 top-3 grid size-11 place-items-center rounded-full text-ivory-dim hover:bg-ink-3"><X className="size-5" /></button>
             <SideContent onNavigate={() => setDrawer(false)} onTreasury={() => setTreasuryOpen(true)} />

@@ -56,37 +56,37 @@ export function AllocationVisual({ assets, reserved, highlight, outflow, classNa
           <rect x={X0} y="110" width={W} height="110" rx="22" />
         </clipPath>
         <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-          <rect width="8" height="8" fill="rgba(201,165,92,0.16)" />
-          <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(227,203,146,0.55)" strokeWidth="1.4" />
+          <rect width="8" height="8" fill="rgba(36,87,255,0.14)" />
+          <line x1="0" y1="0" x2="0" y2="8" stroke="rgba(36,87,255,0.48)" strokeWidth="1.4" />
         </pattern>
         <linearGradient id="mint-fill" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#6fe3b5" stopOpacity="0.16" />
-          <stop offset="1" stopColor="#6fe3b5" stopOpacity="0.34" />
+          <stop offset="0" stopColor="#007e71" stopOpacity="0.16" />
+          <stop offset="1" stopColor="#007e71" stopOpacity="0.34" />
         </linearGradient>
       </defs>
 
       {/* inflow streams */}
       {[170, 320, 470].map((x, i) => (
         <g key={x}>
-          <line x1={x} y1="26" x2={x} y2="108" stroke="rgba(243,236,221,0.14)" strokeDasharray="2 6" />
-          <circle cx={x} cy="30" r="3.5" fill="#f3ecdd" opacity="0.75" />
+          <line x1={x} y1="26" x2={x} y2="108" stroke="rgba(36,87,255,0.2)" strokeDasharray="2 6" />
+          <circle cx={x} cy="30" r="3.5" fill="#0b1739" opacity="0.75" />
           {!reduce && idle !== false && (
             <circle
               cx={x}
               cy="34"
               r="3"
-              fill={i === 1 ? '#c9a55c' : '#6fe3b5'}
+              fill={i === 1 ? '#2457ff' : '#007e71'}
               style={{ animation: `drift 3.2s ease-in ${i * 0.9}s infinite` }}
             />
           )}
         </g>
       ))}
-      <text x="320" y="14" textAnchor="middle" fill="#9aa3b5" fontSize="11" letterSpacing="2.2" fontFamily="Instrument Sans, sans-serif">
+      <text x="320" y="14" textAnchor="middle" fill="#586887" fontSize="11" letterSpacing="2.2" fontFamily="Instrument Sans, sans-serif">
         ANYONE CAN DEPOSIT
       </text>
 
       {/* vessel */}
-      <rect x={X0} y="110" width={W} height="110" rx="22" fill="rgba(15,21,34,0.9)" />
+      <rect x={X0} y="110" width={W} height="110" rx="22" fill="#edf3ff" />
       <g clipPath="url(#vessel-clip)">
         {!empty && (
           <>
@@ -125,57 +125,57 @@ export function AllocationVisual({ assets, reserved, highlight, outflow, classNa
             initial={false}
             animate={{ x: X0 + W - ow, width: ow }}
             transition={reduce ? { duration: 0 } : spring}
-            fill={rejected ? 'rgba(240,138,138,0.28)' : 'rgba(243,236,221,0.14)'}
-            stroke={rejected ? '#f08a8a' : '#f3ecdd'}
+            fill={rejected ? 'rgba(201,54,82,0.18)' : 'rgba(36,87,255,0.2)'}
+            stroke={rejected ? '#c93652' : '#0b1739'}
             strokeDasharray="5 5"
             strokeWidth="1.5"
           />
         )}
       </g>
-      <rect x={X0} y="110" width={W} height="110" rx="22" fill="none" stroke="rgba(243,236,221,0.4)" strokeWidth="1.2" strokeDasharray={empty ? '4 6' : undefined} />
+      <rect x={X0} y="110" width={W} height="110" rx="22" fill="none" stroke="rgba(36,87,255,0.28)" strokeWidth="1.2" strokeDasharray={empty ? '4 6' : undefined} />
 
       {/* seal at the partition */}
       {!empty && protectedFrac > 0 && protectedFrac < 1 && (
         <motion.g initial={false} animate={{ x: X0 + pw }} transition={reduce ? { duration: 0 } : spring}>
-          <line y1="104" y2="226" stroke="#e3cb92" strokeWidth="1.5" />
-          <circle cy="165" r="11" fill="#0a0e17" stroke="#e3cb92" strokeWidth="1.5" />
-          <rect x="-4" y="162" width="8" height="6" rx="1.2" fill="#e3cb92" />
-          <path d="M-2.4 162v-2.2a2.4 2.4 0 0 1 4.8 0V162" fill="none" stroke="#e3cb92" strokeWidth="1.2" />
+          <line y1="104" y2="226" stroke="#2457ff" strokeWidth="1.5" />
+          <circle cy="165" r="11" fill="#ffffff" stroke="#2457ff" strokeWidth="1.5" />
+          <rect x="-4" y="162" width="8" height="6" rx="1.2" fill="#2457ff" />
+          <path d="M-2.4 162v-2.2a2.4 2.4 0 0 1 4.8 0V162" fill="none" stroke="#2457ff" strokeWidth="1.2" />
         </motion.g>
       )}
 
       {/* spending-limit bracket over the mint side */}
       {!empty && (
         <motion.g initial={false} animate={{ x: X0 + pw }} transition={reduce ? { duration: 0 } : spring} opacity={dim('available')}>
-          <motion.rect y="238" height="1.5" fill="#6fe3b5" initial={false} animate={{ width: W - pw }} transition={reduce ? { duration: 0 } : spring} />
-          <line y1="232" y2="246" stroke="#6fe3b5" strokeWidth="1.5" />
-          <motion.line y1="232" y2="246" stroke="#6fe3b5" strokeWidth="1.5" initial={false} animate={{ x1: W - pw, x2: W - pw }} transition={reduce ? { duration: 0 } : spring} />
+          <motion.rect y="238" height="1.5" fill="#007e71" initial={false} animate={{ width: W - pw }} transition={reduce ? { duration: 0 } : spring} />
+          <line y1="232" y2="246" stroke="#007e71" strokeWidth="1.5" />
+          <motion.line y1="232" y2="246" stroke="#007e71" strokeWidth="1.5" initial={false} animate={{ x1: W - pw, x2: W - pw }} transition={reduce ? { duration: 0 } : spring} />
         </motion.g>
       )}
 
       <g fontFamily="Instrument Sans, sans-serif" fontSize="11" letterSpacing="2">
         {!empty && protectedFrac > 0.12 && (
-          <motion.text initial={false} animate={{ x: X0 + pw / 2 }} y="170" textAnchor="middle" fill="#e3cb92" opacity={dim('protected')}>
+          <motion.text initial={false} animate={{ x: X0 + pw / 2 }} y="170" textAnchor="middle" fill="#2457ff" opacity={dim('protected')}>
             PROTECTED
           </motion.text>
         )}
         {!empty && protectedFrac < 0.88 && (
-          <motion.text initial={false} animate={{ x: X0 + pw + (W - pw) / 2 }} y="170" textAnchor="middle" fill="#6fe3b5" opacity={dim('available')}>
+          <motion.text initial={false} animate={{ x: X0 + pw + (W - pw) / 2 }} y="170" textAnchor="middle" fill="#007e71" opacity={dim('available')}>
             AVAILABLE
           </motion.text>
         )}
         {empty && (
-          <text x="320" y="170" textAnchor="middle" fill="#9aa3b5">
+          <text x="320" y="170" textAnchor="middle" fill="#586887">
             EMPTY TREASURY
           </text>
         )}
         {rejected && (
-          <text x="320" y="278" textAnchor="middle" fill="#f08a8a">
+          <text x="320" y="278" textAnchor="middle" fill="#c93652">
             REACHES INTO PROTECTED FUNDS: REJECTED
           </text>
         )}
         {outflow && !rejected && !empty && (
-          <text x="320" y="278" textAnchor="middle" fill="#f3ecdd">
+          <text x="320" y="278" textAnchor="middle" fill="#0b1739">
             STAYS INSIDE AVAILABLE: ALLOWED
           </text>
         )}

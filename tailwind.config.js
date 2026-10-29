@@ -4,21 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: { DEFAULT: '#0a0e17', 2: '#0f1522', 3: '#151c2c', 4: '#1c2438' },
-        ivory: { DEFAULT: '#f3ecdd', dim: '#c4bdad', mute: '#9aa3b5' },
-        gold: { DEFAULT: '#c9a55c', soft: '#e3cb92', deep: '#8f7436' },
-        mint: { DEFAULT: '#6fe3b5', deep: '#3fb98a' },
-        rose: { alert: '#f08a8a' },
+        ink: { DEFAULT: '#ffffff', 2: '#f5f8ff', 3: '#edf3ff', 4: '#dfe9ff' },
+        ivory: { DEFAULT: '#0b1739', dim: '#425574', mute: '#586887' },
+        gold: { DEFAULT: '#2457ff', soft: '#1844d9', deep: '#1532a6' },
+        mint: { DEFAULT: '#007e71', deep: '#006659' },
+        rose: { alert: '#c93652' },
       },
       fontFamily: {
-        display: ['Newsreader', 'Georgia', 'serif'],
+        display: ['"Instrument Sans"', 'ui-sans-serif', 'sans-serif'],
         sans: ['"Instrument Sans"', 'ui-sans-serif', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
-      borderColor: { line: 'rgba(243,236,221,0.12)' },
+      borderColor: { line: 'rgba(30,65,130,0.13)' },
       boxShadow: {
-        gold: '0 0 0 1px rgba(201,165,92,0.35), 0 10px 40px -12px rgba(201,165,92,0.25)',
-        mint: '0 0 0 1px rgba(111,227,181,0.35), 0 10px 40px -12px rgba(111,227,181,0.2)',
+        gold: '0 0 0 1px rgba(36,87,255,0.35), 0 10px 40px -12px rgba(36,87,255,0.25)',
+        mint: '0 0 0 1px rgba(0,126,113,0.35), 0 10px 40px -12px rgba(0,126,113,0.2)',
       },
     },
   },

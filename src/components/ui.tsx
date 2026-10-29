@@ -7,7 +7,7 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'danger'
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-gold text-ink hover:bg-gold-soft shadow-[0_8px_30px_-12px_rgba(201,165,92,0.7)] disabled:hover:bg-gold',
+    'bg-gold text-ink hover:bg-gold-soft shadow-[0_8px_30px_-12px_rgba(36,87,255,0.7)] disabled:hover:bg-gold',
   secondary: 'border border-line text-ivory hover:border-gold/60 hover:bg-ink-3',
   ghost: 'text-ivory-dim hover:text-ivory hover:bg-ink-3',
   danger: 'border border-rose-alert/50 text-rose-alert hover:bg-rose-alert/10',
@@ -24,7 +24,7 @@ export function Button({ variant = 'primary', busy, className, children, disable
       {...rest}
       disabled={disabled || busy}
       className={clsx(
-        'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-45',
+        'inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-5 text-sm font-semibold transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-45',
         variants[variant],
         className,
       )}
@@ -134,7 +134,7 @@ export function Dialog({
             if (e.target === e.currentTarget) onClose()
           }}
         >
-          <div className="absolute inset-0 bg-ink/80 backdrop-blur-sm" aria-hidden />
+          <div className="absolute inset-0 bg-[#0b1739]/40 backdrop-blur-sm" aria-hidden />
           <motion.div
             ref={panelRef}
             role="dialog"
