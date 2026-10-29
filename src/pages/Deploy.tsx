@@ -16,6 +16,10 @@ const tokenAbi = parseAbi(['function decimals() view returns (uint8)', 'function
 type Record = { hash: Hash; factory?: `0x${string}`; chainId: number }
 type Quote = { account: string; gas: bigint; gasPrice: bigint; maxCost: bigint; balance: bigint; time: number }
 
+function saveRecord(record: Record) {
+  try { localStorage.setItem(KEY, JSON.stringify(record)) } catch { /* The visible transaction link remains available even if storage is blocked. */ }
+}
+
 function readRecord(): Record | null {
   try {
     const r = JSON.parse(localStorage.getItem(KEY) ?? 'null') as Record | null
@@ -55,7 +59,7 @@ export default function Deploy() {
         if (getAddress(token) !== USDC_ADDRESS || !code || !factoryCodeMatches(code)) throw new Error('Deployment verification failed. Do not configure or fund this factory.')
         if (cancelled) return
         const next = { hash: record.hash, factory, chainId: CHAIN_ID }
-        localStorage.setItem(KEY, JSON.stringify(next))
+        saveRecord(next)
         setRecord(next)
         setPhase('done')
         setMessage(null)
@@ -108,7 +112,7 @@ export default function Deploy() {
         gas: quote.gas, gasPrice: quote.gasPrice,
       })
       const next = { hash, chainId: CHAIN_ID }
-      localStorage.setItem(KEY, JSON.stringify(next))
+      saveRecord(next)
       setRecord(next); setPhase('confirming')
     } catch (error) {
       setMessage(friendlyError(error).message); setPhase('failed')
@@ -142,7 +146,7 @@ export default function Deploy() {
         ) : record?.hash ? (
           <Notice title={phase === 'failed' ? 'Deployment needs review' : 'Confirming and verifying deployment'}>
             <a href={txUrl(record.hash)} target="_blank" rel="noreferrer" className="break-all text-gold underline">{record.hash}</a>
-            <p className="mt-2">This transaction is saved in this browser. Reload this page to resume verification; do not submit a duplicate deployment.</p>
+            <p className="mt-2">Keep this transaction link. It is also saved locally when browser storage is available, so a reload can resume verification. Do not submit a duplicate deployment.</p>
           </Notice>
         ) : !FACTORY_ADDRESS ? (
           <div className="panel space-y-5 p-6">
