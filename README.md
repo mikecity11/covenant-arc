@@ -20,7 +20,7 @@ Public repository: https://github.com/mikecity11/covenant-arc (the original buil
 
 - Contracts written and tested: 88 Foundry unit, fuzz and invariant tests (`docs/TEST_RESULTS.md`) and 31 post-deploy integration tests run on a fork of Arc Testnet (`docs/INTEGRATION_RESULTS.md`). Reviewed with static analysis and two independent review passes. Not independently audited.
 - The factory is deployed on Arc Testnet at `0x10550cd1cea9854f9ac18018507479339875f8af` (see `docs/DEPLOYMENTS.md`). This address belongs only to testnet and must not be used in the mainnet app. The mainnet app reads its factory from `VITE_COVENANT_MAINNET_FACTORY_ADDRESS`; without it, treasury creation is disabled and vaults can still be opened by address.
-- Mainnet migration prepared: /deploy creates a user-signed factory deployment after network/token/fee checks. No mainnet factory has been confirmed yet. Complete the wallet step, then configure the dedicated mainnet factory address.
+- Arc mainnet factory: `0x20e1b3a8ac9370339f22b77ab0e029748429ae16` (chain 5042). The user-signed deployment page reported a successful receipt, matching compiled runtime, and canonical USDC token. The production mainnet factory environment variable is configured. Deployment transaction hash still needs to be recorded from the user's explorer link. A real-USDC treasury deposit/payment flow still needs to be exercised before submission.
 
 ## Tech stack
 
